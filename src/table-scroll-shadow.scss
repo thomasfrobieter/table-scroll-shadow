@@ -1,6 +1,20 @@
 :root {
   --table-shadow-color: rgba(0, 0, 0, 0.25);
   --table-shadow-size: 2em;
+  --table-long-text-cell-min-width: 30rem;
+}
+
+.table-scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  &--left {
+    left: 0;
+  }
+  &--right {
+    right: 0;
+  }
 }
 
 .table-wrapper {
@@ -12,10 +26,14 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 
+  .long-text-cell {
+    min-width: var(--table-long-text-cell-min-width);
+  }
+
   &.has-shadow-left::before,
   &.has-shadow-right::after {
     position: absolute;
-    content: '';
+    content: "";
     display: block;
     border-radius: 0;
     transition: opacity 0.2s;
@@ -26,18 +44,32 @@
     width: var(--table-shadow-size);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background: radial-gradient(at 0 50%, var(--table-shadow-color), transparent 70%),
+    background: radial-gradient(
+        at 0 50%,
+        var(--table-shadow-color),
+        transparent 70%
+      ),
       linear-gradient(90deg, var(--table-shadow-color), transparent 50%);
     background-size: var(--table-shadow-size) 100%;
     background-repeat: no-repeat;
   }
 
-  &.has-shadow-right::after {
-    right: 0;
-    transform: rotate(180deg);
+  &.has-shadow-right {
+    &::after {
+      right: 0;
+      transform: rotate(180deg);
+    }
+    .table-scroll-button--right {
+      display: block;
+    }
   }
 
-  &.has-shadow-left::before {
-    left: 0;
+  &.has-shadow-left {
+    &::before {
+      left: 0;
+    }
+    .table-scroll-button--left {
+      display: block;
+    }
   }
 }

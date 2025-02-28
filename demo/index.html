@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.png" type="image/x-icon" />
     <title>Demo | Table Scroll Shadow</title>
-    <link rel="stylesheet" href="dist/table-scroll-shadow.min.css" />
+    <link rel="stylesheet" href="../dist/table-scroll-shadow.min.css" />
     <link rel="stylesheet" href="demo.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -69,7 +69,7 @@
                       </tr>
                       <tr>
                         <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
+                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt u</td>
                         <td>Edinburgh</td>
                         <td>22</td>
                         <td>2012/03/29</td>
@@ -98,14 +98,16 @@
         </footer>
       </div>
     </div>
-    <script src="dist/table-scroll-shadow.min.js"></script>
+    <script src="../dist/table-scroll-shadow.min.js"></script>
     <script>
       document.addEventListener(
         'DOMContentLoaded',
         function () {
           const table = new TableScrollShadow({
             shadowColor: 'rgba(0, 0, 0, 0.25)',
-            throttleDelay: 100
+            throttleDelay: 100,
+            showButtons: true,
+            enableLongTextCellMinWidth: true,
           })
           table.init()
         },
